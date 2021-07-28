@@ -11,6 +11,7 @@ public class Display {
         System.out.println("Digite 3 - para creditar");
         System.out.println("Digite 4 - para debitar");
         System.out.println("Digite 5 - para transferencia");
+        System.out.println("Digite 6 - para render juros");
         System.out.println("Digite 0 - para encerrar operacoes");
     }
 
@@ -18,5 +19,6 @@ public class Display {
         System.out.println("---------------------------------");
         System.out.println("Digite 11 para criar conta comum");
         System.out.println("Digite 12 para criar conta bonus");
+        System.out.println("Digite 13 para criar conta poupanca");
     }
 }

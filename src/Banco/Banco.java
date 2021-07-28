@@ -2,6 +2,7 @@ package Banco;
 
 import Contas.Conta;
 import Contas.ContaBonus;
+import Contas.ContaPoupanca;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public class Banco {
     public List<Conta> contas = new ArrayList<Conta>();
     public List<ContaBonus> contasBonus = new ArrayList<ContaBonus>();
+    public List<ContaPoupanca> contasPoupanca = new ArrayList<ContaPoupanca>();
 
     public boolean cadastrarConta(String numeroDaConta){
         for (Conta aux: contas) {
@@ -37,6 +39,19 @@ public class Banco {
         return true;
     }
 
+    public boolean cadastrarContaPoupanca(String numeroDaConta){
+        for (ContaPoupanca aux: contasPoupanca) {
+            if(aux.getNumero().equals(numeroDaConta)){
+                System.out.println("ERROR: Número de conta já existe!");
+                return false;
+            }
+        }
+        ContaPoupanca cp = new ContaPoupanca(numeroDaConta);
+        contasPoupanca.add(cp);
+        System.out.println("Conta cadastrada com sucesso!");
+        return true;
+    }
+
     public double consultarSaldo(String numeroDaConta){
         for (Conta c: contas) {
             if(c.getNumero().equals(numeroDaConta)){
@@ -47,6 +62,12 @@ public class Banco {
         for (ContaBonus cb: contasBonus) {
             if(cb.getNumero().equals(numeroDaConta)){
                 return cb.getSaldo();
+            }
+        }
+
+        for (ContaPoupanca cp: contasPoupanca) {
+            if(cp.getNumero().equals(numeroDaConta)){
+                return cp.getSaldo();
             }
         }
 
@@ -87,6 +108,13 @@ public class Banco {
 
         }
 
+        for (ContaPoupanca cp: contasPoupanca) {
+            if(cp.getNumero().equals(numeroDaConta)){
+                cp.setSaldo(cp.getSaldo() + valor);
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -101,6 +129,13 @@ public class Banco {
         for (ContaBonus cb: contasBonus) {
             if(cb.getNumero().equals(numeroDaConta)){
                 cb.setSaldo(cb.getSaldo() - valor);
+                return true;
+            }
+        }
+
+        for (ContaPoupanca cp: contasPoupanca) {
+            if(cp.getNumero().equals(numeroDaConta)){
+                cp.setSaldo(cp.getSaldo() - valor);
                 return true;
             }
         }
@@ -126,6 +161,12 @@ public class Banco {
             }
         }
 
+        for (ContaPoupanca cp: contasPoupanca) {
+            if(cp.getNumero().equals(numeroContaOrigem)){
+                flag1 = true;
+            }
+        }
+
         for (Conta c: contas) {
             if(c.getNumero().equals(numeroContaDestino)){
                 flag2 = true;
@@ -137,6 +178,12 @@ public class Banco {
                 flag2 = true;
                 flagContaDestino = true;
                 cBonus = cb;
+            }
+        }
+
+        for (ContaPoupanca cp: contasPoupanca) {
+            if(cp.getNumero().equals(numeroContaDestino)){
+                flag2 = true;
             }
         }
 
@@ -163,4 +210,13 @@ public class Banco {
         return false;
     }
 
+    public boolean renderJuros(String numeroDaConta, double valorDosJuros){
+        for (ContaPoupanca cp: contasPoupanca) {
+            if(cp.getNumero().equals(numeroDaConta)){
+                cp.setSaldo(cp.getSaldo()*(1+valorDosJuros));
+                return true;
+            }
+        }
+        return false;
+    }
 }

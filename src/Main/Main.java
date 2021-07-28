@@ -3,16 +3,19 @@ package Main;
 import Banco.Banco;
 import Contas.Conta;
 import Contas.ContaBonus;
+import Contas.ContaPoupanca;
 import HUD.Display;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Banco banco = new Banco();
-        Conta c = new Conta("123456-1");
-        ContaBonus contaBonus = new ContaBonus("123123");
-        banco.cadastrarContaBonus(contaBonus.getNumero());
-        banco.cadastrarConta(c.getNumero());
+        //ContaPoupanca contaPoupanca = new ContaPoupanca("123123");
+        //banco.cadastrarContaPoupanca(contaPoupanca.getNumero());
+        //Conta c = new Conta("123456-1");
+        //ContaBonus contaBonus = new ContaBonus("123123");
+        //banco.cadastrarContaBonus(contaBonus.getNumero());
+        //banco.cadastrarConta(c.getNumero());
         String numeroDaConta, numeroContaOrigem, numeroContaDestino;
         double valor;
 
@@ -93,8 +96,23 @@ public class Main {
                     banco.transferir(numeroContaOrigem, numeroContaDestino, valor);
 
                     break;
+
+                case 6:
+                    System.out.println("Informe o numero da conta:");
+                    numeroDaConta = leitor.next();
+                    System.out.println("Informe o valor dos juros em decimal:");
+                    double valorDosJuros = leitor.nextDouble();
+
+                    if(banco.renderJuros(numeroDaConta, valorDosJuros)){
+                        System.out.println("Novo saldo da conta " + numeroDaConta + ": " + banco.consultarSaldo(numeroDaConta));
+                    } else {
+                        System.out.println("Operacao impossivel");
+                    }
+
+                    break;
+
                 case 0:
-                    System.out.println(banco.mostrarPontuacao("123123"));
+                    //System.out.println(banco.mostrarPontuacao("123123"));
                     System.out.println("Encerrando o sistema...");
 
                     break;
