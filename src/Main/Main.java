@@ -2,6 +2,7 @@ package Main;
 
 import Banco.Banco;
 import Contas.Conta;
+import Contas.ContaBonus;
 import HUD.Display;
 import java.util.Scanner;
 
@@ -9,6 +10,9 @@ public class Main {
     public static void main(String[] args) {
         Banco banco = new Banco();
         Conta c = new Conta("123456-1");
+        ContaBonus contaBonus = new ContaBonus("123123");
+        banco.cadastrarContaBonus(contaBonus.getNumero());
+        banco.cadastrarConta(c.getNumero());
         String numeroDaConta, numeroContaOrigem, numeroContaDestino;
         double valor;
 
@@ -25,11 +29,22 @@ public class Main {
 
             switch (opcao){
                 case 1:
+                    display.mostrarTiposCadastro();
+                    int op;
+                    op = leitor.nextInt();
 
-                    System.out.println("Por favor, informe um numero para a conta:");
-                    numeroDaConta = leitor.next();
+                    if(op == 11){
+                        System.out.println("Por favor, informe um numero para a conta:");
+                        numeroDaConta = leitor.next();
 
-                    banco.cadastrarConta(numeroDaConta);
+                        banco.cadastrarConta(numeroDaConta);
+
+                    } else if(op == 12){
+                        System.out.println("Por favor, informe um numero para a conta:");
+                        numeroDaConta = leitor.next();
+                        ContaBonus cb = new ContaBonus(numeroDaConta);
+                        banco.cadastrarContaBonus(cb.getNumero());
+                    }
 
                     break;
 
@@ -79,7 +94,7 @@ public class Main {
 
                     break;
                 case 0:
-
+                    System.out.println(banco.mostrarPontuacao("123123"));
                     System.out.println("Encerrando o sistema...");
 
                     break;
