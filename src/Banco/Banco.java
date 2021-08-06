@@ -194,7 +194,7 @@ public class Banco {
                 creditar(numeroContaDestino, valor);
 
                 int pontos;
-                int divisor = 200;
+                int divisor = 150;
                 int novoValor = (int) valor;
 
                 pontos = (novoValor - (novoValor % divisor))/divisor;

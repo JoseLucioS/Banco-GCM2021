@@ -10,12 +10,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Banco banco = new Banco();
-        //ContaPoupanca contaPoupanca = new ContaPoupanca("123123");
-        //banco.cadastrarContaPoupanca(contaPoupanca.getNumero());
-        //Conta c = new Conta("123456-1");
-        //ContaBonus contaBonus = new ContaBonus("123123");
-        //banco.cadastrarContaBonus(contaBonus.getNumero());
-        //banco.cadastrarConta(c.getNumero());
         String numeroDaConta, numeroContaOrigem, numeroContaDestino;
         double valor;
 
