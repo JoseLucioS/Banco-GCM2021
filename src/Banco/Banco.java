@@ -39,7 +39,7 @@ public class Banco {
         return true;
     }
 
-    public boolean cadastrarContaPoupanca(String numeroDaConta){
+    public boolean cadastrarContaPoupanca(String numeroDaConta, double saldoInicial){
         for (ContaPoupanca aux: contasPoupanca) {
             if(aux.getNumero().equals(numeroDaConta)){
                 System.out.println("ERROR: Número de conta já existe!");
@@ -47,6 +47,7 @@ public class Banco {
             }
         }
         ContaPoupanca cp = new ContaPoupanca(numeroDaConta);
+        cp.setSaldo(saldoInicial);
         contasPoupanca.add(cp);
         System.out.println("Conta cadastrada com sucesso!");
         return true;
@@ -119,17 +120,30 @@ public class Banco {
     }
 
     public boolean debitar(String numeroDaConta, double valor){
+        double valorLimiteMinimo = -1000;
         for (Conta c: contas) {
             if(c.getNumero().equals(numeroDaConta)){
-                c.setSaldo(c.getSaldo() - valor);
-                return true;
+                if((c.getSaldo() - valor) < valorLimiteMinimo){
+                    System.out.println("ERROR! Saldo insuficiente!");
+                    return false;
+                } else {
+                    c.setSaldo(c.getSaldo() - valor);
+                    return true;
+                }
+
             }
         }
 
         for (ContaBonus cb: contasBonus) {
             if(cb.getNumero().equals(numeroDaConta)){
-                cb.setSaldo(cb.getSaldo() - valor);
-                return true;
+                if((cb.getSaldo() - valor) < valorLimiteMinimo){
+                    System.out.println("ERROR! Saldo insuficiente!");
+                    return false;
+                } else {
+                    cb.setSaldo(cb.getSaldo() - valor);
+                    return true;
+                }
+
             }
         }
 
