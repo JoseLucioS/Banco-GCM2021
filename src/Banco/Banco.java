@@ -123,29 +123,18 @@ public class Banco {
         double limiteInferiorContaSimples = -1000;
         double limiteInferiorContaBonus = -1000;
         double limiteInferiorContaPoupanca = 0;
+
         for (Conta c: contas) {
             if(c.getNumero().equals(numeroDaConta)){
-                if((c.getSaldo() - valor) < limiteInferiorContaSimples){
-                    System.out.println("ERROR! Saldo insuficiente!");
-                    return false;
-                } else {
-                    c.setSaldo(c.getSaldo() - valor);
-                    return true;
-                }
-
+                c.setSaldo(c.getSaldo() - valor);
+                return true;
             }
         }
 
         for (ContaBonus cb: contasBonus) {
             if(cb.getNumero().equals(numeroDaConta)){
-                if((cb.getSaldo() - valor) < limiteInferiorContaBonus){
-                    System.out.println("ERROR! Saldo insuficiente!");
-                    return false;
-                } else {
-                    cb.setSaldo(cb.getSaldo() - valor);
-                    return true;
-                }
-
+                cb.setSaldo(cb.getSaldo() - valor);
+                return true;
             }
         }
 
@@ -158,7 +147,6 @@ public class Banco {
                     cp.setSaldo(cp.getSaldo() - valor);
                     return true;
                 }
-
             }
         }
 
