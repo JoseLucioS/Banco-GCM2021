@@ -42,9 +42,11 @@ public class Main {
                         numeroDaConta = leitor.next();
 
                         banco.cadastrarContaBonus(numeroDaConta);
+
                     } else if(op == 13){
                         System.out.println("Por favor, informe um numero para a conta:");
                         numeroDaConta = leitor.next();
+
                         System.out.println("Informe o valor do saldo inicial:");
                         double saldoInicial = leitor.nextDouble();
 
@@ -68,6 +70,7 @@ public class Main {
 
                     System.out.println("Por favor, informe o numero da conta:");
                     numeroDaConta = leitor.next();
+
                     System.out.println("Informe o valor para creditar:");
                     valor = leitor.nextDouble();
 
@@ -79,6 +82,7 @@ public class Main {
 
                     System.out.println("Por favor, informe o numero da conta:");
                     numeroDaConta = leitor.next();
+
                     System.out.println("Informe o valor para debitar:");
                     valor = leitor.nextDouble();
 
@@ -90,8 +94,10 @@ public class Main {
 
                     System.out.println("Por favor, informe o numero da conta de origem:");
                     numeroContaOrigem = leitor.next();
+
                     System.out.println("Por favor, informe o numero da conta de destino:");
                     numeroContaDestino = leitor.next();
+
                     System.out.println("valor a ser transferido:");
                     valor = leitor.nextDouble();
 

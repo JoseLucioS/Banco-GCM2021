@@ -22,6 +22,7 @@ public class Banco {
         }
         Conta c = new Conta(numeroDaConta);
         contas.add(c);
+        
         System.out.println("Conta cadastrada com sucesso!");
         return true;
     }
@@ -35,6 +36,7 @@ public class Banco {
         }
         ContaBonus c = new ContaBonus(numeroDaConta);
         contasBonus.add(c);
+
         System.out.println("Conta cadastrada com sucesso!");
         return true;
     }
@@ -48,6 +50,7 @@ public class Banco {
         }
         ContaPoupanca cp = new ContaPoupanca(numeroDaConta);
         cp.setSaldo(saldoInicial);
+
         contasPoupanca.add(cp);
         System.out.println("Conta cadastrada com sucesso!");
         return true;
@@ -106,7 +109,6 @@ public class Banco {
                 cb.setPontuacao(cb.getPontuacao() + pontos);
                 return true;
             }
-
         }
 
         for (ContaPoupanca cp: contasPoupanca) {
@@ -123,6 +125,7 @@ public class Banco {
         double limiteInferiorContaSimples = -1000;
         double limiteInferiorContaBonus = -1000;
         double limiteInferiorContaPoupanca = 0;
+
         for (Conta c: contas) {
             if(c.getNumero().equals(numeroDaConta)){
                 if((c.getSaldo() - valor) < limiteInferiorContaSimples){
@@ -132,7 +135,6 @@ public class Banco {
                     c.setSaldo(c.getSaldo() - valor);
                     return true;
                 }
-
             }
         }
 
@@ -145,7 +147,6 @@ public class Banco {
                     cb.setSaldo(cb.getSaldo() - valor);
                     return true;
                 }
-
             }
         }
 
@@ -158,7 +159,6 @@ public class Banco {
                     cp.setSaldo(cp.getSaldo() - valor);
                     return true;
                 }
-
             }
         }
 
