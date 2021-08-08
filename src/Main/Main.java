@@ -37,14 +37,16 @@ public class Main {
 
                         banco.cadastrarConta(numeroDaConta);
 
-                    } else if(op == 12){
+                    } else if(op == 12) {
                         System.out.println("Por favor, informe um numero para a conta:");
                         numeroDaConta = leitor.next();
 
                         banco.cadastrarContaBonus(numeroDaConta);
+
                     } else if(op == 13){
                         System.out.println("Por favor, informe um numero para a conta:");
                         numeroDaConta = leitor.next();
+
                         System.out.println("Informe o valor do saldo inicial:");
                         double saldoInicial = leitor.nextDouble();
 
