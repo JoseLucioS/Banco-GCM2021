@@ -40,7 +40,7 @@ public class Main {
                     } else if(op == 12){
                         System.out.println("Por favor, informe um numero para a conta:");
                         numeroDaConta = leitor.next();
-                        //ContaBonus cb = new ContaBonus(numeroDaConta);
+
                         banco.cadastrarContaBonus(numeroDaConta);
                     } else if(op == 13){
                         System.out.println("Por favor, informe um numero para a conta:");
@@ -48,7 +48,6 @@ public class Main {
                         System.out.println("Informe o valor do saldo inicial:");
                         double saldoInicial = leitor.nextDouble();
 
-                        //ContaPoupanca cp = new ContaPoupanca(numeroDaConta, saldoInicial);
                         banco.cadastrarContaPoupanca(numeroDaConta, saldoInicial);
                     }
 

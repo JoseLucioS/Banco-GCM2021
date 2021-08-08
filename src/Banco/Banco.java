@@ -120,10 +120,12 @@ public class Banco {
     }
 
     public boolean debitar(String numeroDaConta, double valor){
-        double valorLimiteMinimo = -1000;
+        double limiteInferiorContaSimples = -1000;
+        double limiteInferiorContaBonus = -1000;
+        double limiteInferiorContaPoupanca = 0;
         for (Conta c: contas) {
             if(c.getNumero().equals(numeroDaConta)){
-                if((c.getSaldo() - valor) < valorLimiteMinimo){
+                if((c.getSaldo() - valor) < limiteInferiorContaSimples){
                     System.out.println("ERROR! Saldo insuficiente!");
                     return false;
                 } else {
@@ -136,7 +138,7 @@ public class Banco {
 
         for (ContaBonus cb: contasBonus) {
             if(cb.getNumero().equals(numeroDaConta)){
-                if((cb.getSaldo() - valor) < valorLimiteMinimo){
+                if((cb.getSaldo() - valor) < limiteInferiorContaBonus){
                     System.out.println("ERROR! Saldo insuficiente!");
                     return false;
                 } else {
@@ -149,8 +151,14 @@ public class Banco {
 
         for (ContaPoupanca cp: contasPoupanca) {
             if(cp.getNumero().equals(numeroDaConta)){
-                cp.setSaldo(cp.getSaldo() - valor);
-                return true;
+                if((cp.getSaldo() - valor) < limiteInferiorContaPoupanca){
+                    System.out.println("ERROR! Saldo insuficiente!");
+                    return false;
+                } else {
+                    cp.setSaldo(cp.getSaldo() - valor);
+                    return true;
+                }
+
             }
         }
 
