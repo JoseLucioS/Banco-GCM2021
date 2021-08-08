@@ -39,7 +39,7 @@ public class Banco {
         return true;
     }
 
-    public boolean cadastrarContaPoupanca(String numeroDaConta, double saldoInicial){
+    public boolean cadastrarContaPoupanca(String numeroDaConta){
         for (ContaPoupanca aux: contasPoupanca) {
             if(aux.getNumero().equals(numeroDaConta)){
                 System.out.println("ERROR: Número de conta já existe!");
@@ -47,7 +47,6 @@ public class Banco {
             }
         }
         ContaPoupanca cp = new ContaPoupanca(numeroDaConta);
-        cp.setSaldo(saldoInicial);
         contasPoupanca.add(cp);
         System.out.println("Conta cadastrada com sucesso!");
         return true;
