@@ -47,10 +47,10 @@ public class Main {
                         System.out.println("Por favor, informe um numero para a conta:");
                         numeroDaConta = leitor.next();
 
-                        System.out.println("Informe o valor do saldo inicial:");
-                        double saldoInicial = leitor.nextDouble();
+                        //System.out.println("Informe o valor do saldo inicial:");
+                        //double saldoInicial = leitor.nextDouble();
 
-                        banco.cadastrarContaPoupanca(numeroDaConta, saldoInicial);
+                        banco.cadastrarContaPoupanca(numeroDaConta);
                     }
 
                     break;
