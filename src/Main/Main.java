@@ -19,7 +19,7 @@ public class Main {
 
         Display display = new Display();
 
-        //TODO colocar um "if" para verificar o êxito das funções booleanas (creditar, debitar, transferir)
+        //TODO colocar um "if" para verificar o êxito das funções booleanas (cadastrar, creditar, debitar, transferir)
         while(opcao != 0){
             display.mostrarOpcoes();
             opcao = leitor.nextInt();

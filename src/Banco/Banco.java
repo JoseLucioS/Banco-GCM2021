@@ -16,35 +16,35 @@ public class Banco {
     public boolean cadastrarConta(String numeroDaConta){
         for (Conta aux: contas) {
             if(aux.getNumero().equals(numeroDaConta)){
-                System.out.println("ERROR: Número de conta já existe!");
+                //System.out.println("ERROR: Número de conta já existe!");
                 return false;
             }
         }
         Conta c = new Conta(numeroDaConta);
         contas.add(c);
         
-        System.out.println("Conta cadastrada com sucesso!");
+        //System.out.println("Conta cadastrada com sucesso!");
         return true;
     }
 
     public boolean cadastrarContaBonus(String numeroDaConta){
         for (ContaBonus aux: contasBonus) {
             if(aux.getNumero().equals(numeroDaConta)){
-                System.out.println("ERROR: Número de conta já existe!");
+                //System.out.println("ERROR: Número de conta já existe!");
                 return false;
             }
         }
         ContaBonus c = new ContaBonus(numeroDaConta);
         contasBonus.add(c);
 
-        System.out.println("Conta cadastrada com sucesso!");
+        //System.out.println("Conta cadastrada com sucesso!");
         return true;
     }
 
     public boolean cadastrarContaPoupanca(String numeroDaConta, double saldoInicial){
         for (ContaPoupanca aux: contasPoupanca) {
             if(aux.getNumero().equals(numeroDaConta)){
-                System.out.println("ERROR: Número de conta já existe!");
+                //System.out.println("ERROR: Número de conta já existe!");
                 return false;
             }
         }
@@ -52,7 +52,7 @@ public class Banco {
         cp.setSaldo(saldoInicial);
 
         contasPoupanca.add(cp);
-        System.out.println("Conta cadastrada com sucesso!");
+        //System.out.println("Conta cadastrada com sucesso!");
         return true;
     }
 
