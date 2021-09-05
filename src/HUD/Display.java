@@ -3,6 +3,7 @@ package HUD;
 import jdk.swing.interop.SwingInterOpUtils;
 
 public class Display {
+    public String separador = "---------------------------------";
     public void mostrarOpcoes(){
         System.out.println("-------BANCO DO PROGRESSO-------");
         System.out.println("PORQUE OS TEMPOS MUDAM MUITO...");
@@ -16,7 +17,7 @@ public class Display {
     }
 
     public void mostrarTiposCadastro(){
-        System.out.println("---------------------------------");
+        System.out.println(separador);
         System.out.println("Digite 11 para criar conta comum");
         System.out.println("Digite 12 para criar conta bonus");
         System.out.println("Digite 13 para criar conta poupanca");
