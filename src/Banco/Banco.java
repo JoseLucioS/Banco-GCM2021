@@ -50,7 +50,6 @@ public class Banco {
         }
         ContaPoupanca cp = new ContaPoupanca(numeroDaConta);
         cp.setSaldo(saldoInicial);
-
         contasPoupanca.add(cp);
         //System.out.println("Conta cadastrada com sucesso!");
         return true;
@@ -131,10 +130,9 @@ public class Banco {
                 if((c.getSaldo() - valor) < limiteInferiorContaSimples){
                     System.out.println("ERROR! Saldo insuficiente!");
                     return false;
-                } else {
-                    c.setSaldo(c.getSaldo() - valor);
-                    return true;
                 }
+                c.setSaldo(c.getSaldo() - valor);
+                return true;
             }
         }
 
@@ -143,10 +141,9 @@ public class Banco {
                 if((cb.getSaldo() - valor) < limiteInferiorContaBonus){
                     System.out.println("ERROR! Saldo insuficiente!");
                     return false;
-                } else {
-                    cb.setSaldo(cb.getSaldo() - valor);
-                    return true;
                 }
+                cb.setSaldo(cb.getSaldo() - valor);
+                return true;
             }
         }
 
