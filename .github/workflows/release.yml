@@ -28,3 +28,7 @@ jobs:
    
     - name: Build with Maven
       run: mvn package
+    
+    - name: action-zip
+      uses: montudor/action-zip@v1.0.0
+      
