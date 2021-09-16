@@ -3,7 +3,7 @@ package HUD;
 import jdk.swing.interop.SwingInterOpUtils;
 
 public class Display {
-    public String separador = "---------------------------------";
+    private String separador = "---------------------------------";
     public void mostrarOpcoes(){
         System.out.println("-------BANCO DO PROGRESSO-------");
         System.out.println("PORQUE OS TEMPOS MUDAM MUITO...");
