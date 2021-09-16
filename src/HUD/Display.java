@@ -1,7 +1,5 @@
 package HUD;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 public class Display {
     private String separador = "---------------------------------";
     public void mostrarOpcoes(){
